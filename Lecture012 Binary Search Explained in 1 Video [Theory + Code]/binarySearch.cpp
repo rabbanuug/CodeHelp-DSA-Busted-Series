@@ -10,21 +10,15 @@ int binarySearch(int arr[], int size, int key) {
 
     while(start <= end) {
 
-        if(arr[mid] == key) {
-            return mid;
-        }
+        if(arr[mid] == key) return mid;
 
         //go to right wala part
-        if(key > arr[mid]) {
-            start = mid + 1;
-        }
+        if(key > arr[mid]) start = mid + 1;
         else{ //key < arr[mid]
             end = mid - 1;
         }
-
         mid = start + (end-start)/2;
     }
-    
     return -1;
 }
 
@@ -42,7 +36,6 @@ int main() {
 
     cout << " Index of 14 is " << oddIndex << endl;
 
-
     return 0;
 }
 
@@ -53,12 +46,9 @@ int findPeak(int arr[], int n) {
 
     while(s<e) {
         //cout<<" s " << s <<" e " << e << endl;
-        if(arr[mid] < arr[mid+1]){
-            s = mid+1; 
-        }
-        else{
-            e = mid;
-        }
+        if(arr[mid] < arr[mid+1]) s = mid+1;
+        else e = mid;
+
         mid = s + (e-s)/2;
     }
     return s;
